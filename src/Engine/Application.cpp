@@ -22,7 +22,7 @@ int Application::Run()
 	shape.setFillColor(sf::Color::White);
 
 	sf::Texture shapeTexture;
-	shapeTexture.loadFromFile("content/sfml.png");
+	shapeTexture.loadFromFile("assets/sfml.png");
 	shape.setTexture(&shapeTexture);
 
 	sf::Event event;

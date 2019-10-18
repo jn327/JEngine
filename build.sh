@@ -61,12 +61,8 @@ if [[ $PLATFORM == 'windows' ]]; then
 	fi
 fi
 
-if [[ $BUILD != "Release" && $BUILD != 'Debug' && $BUILD != 'Tests' ]]; then
+if [[ $BUILD != "Release" && $BUILD != 'Debug' ]]; then
 	BUILD=Release
-fi
-
-if [[ $BUILD == 'Tests' ]]; then
-	NAME=tests_$NAME
 fi
 
 PROF_EXEC=gprof
@@ -132,11 +128,7 @@ tput setaf 4
 if [[ $CMD == 'buildrun' ]]; then
 	if $MAKE_EXEC BUILD=$BUILD; then
 		build_success_launch
-		if [[ $BUILD == 'Tests' ]]; then
-			bin/Release/$NAME $OPTIONS
-		else
-			bin/$BUILD/$NAME $OPTIONS
-		fi
+		bin/$BUILD/$NAME $OPTIONS
 	else
 		build_fail
 	fi
@@ -157,11 +149,7 @@ elif [[ $CMD == 'rebuild' ]]; then
 
 elif [[ $CMD == 'run' ]]; then
 	launch
-	if [[ $BUILD == 'Tests' ]]; then
-		bin/Release/$NAME $OPTIONS
-	else
-		bin/$BUILD/$NAME $OPTIONS
-	fi
+	bin/$BUILD/$NAME $OPTIONS
 
 elif [[ $CMD == 'buildprod' ]]; then
 	if [[ $BUILD == 'Release' ]]; then
