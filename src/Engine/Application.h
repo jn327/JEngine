@@ -3,7 +3,9 @@
 class Application
 {
  public:
- 	Application(int width, int height, std::string name);
+ 	Application(const int width, const int height, const char* name);
+	~Application();
+
 	int Run();
 
  private:

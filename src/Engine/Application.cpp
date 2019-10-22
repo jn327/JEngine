@@ -1,7 +1,6 @@
-#include <iostream>
 #include "Application.h"
 
-Application::Application(int width, int height, std::string name)
+Application::Application(const int width, const int height, const char* name)
 {
 	//TODO: only allow one instance of application to be created, throw an error otherwise!
 	// as a singleton... maybe
@@ -14,6 +13,11 @@ Application::Application(int width, int height, std::string name)
 	#ifdef SFML_SYSTEM_WINDOWS
 		__windowsHelper.setIcon(_window.getSystemHandle());
 	#endif
+}
+
+Application::~Application()
+{
+	delete _timeManager;
 }
 
 int Application::Run()
