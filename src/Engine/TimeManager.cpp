@@ -5,10 +5,10 @@
 
 TimeManager::TimeManager()
 {
-	Debug::Log("Time Manager created.");
+	DEBUG_LOG("Time Manager created");
 }
 
 TimeManager::~TimeManager()
 {
-	Debug::Log("Time Manager destroyed.");
+	DEBUG_LOG("");
 }
